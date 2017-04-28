@@ -15,6 +15,7 @@
 		B414F5BA1EB2E52A00B5268A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B414F5B81EB2E52A00B5268A /* LaunchScreen.storyboard */; };
 		B414F5C51EB2E52A00B5268A /* TTImagePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B414F5C41EB2E52A00B5268A /* TTImagePickerTests.m */; };
 		B414F5D01EB2E52A00B5268A /* TTImagePickerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B414F5CF1EB2E52A00B5268A /* TTImagePickerUITests.m */; };
+		B414F5E01EB2E55400B5268A /* UIViewController+TTImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B414F5DF1EB2E55400B5268A /* UIViewController+TTImagePicker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		B414F5CB1EB2E52A00B5268A /* TTImagePickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTImagePickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B414F5CF1EB2E52A00B5268A /* TTImagePickerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTImagePickerUITests.m; sourceTree = "<group>"; };
 		B414F5D11EB2E52A00B5268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B414F5DE1EB2E55400B5268A /* UIViewController+TTImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TTImagePicker.h"; sourceTree = "<group>"; };
+		B414F5DF1EB2E55400B5268A /* UIViewController+TTImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TTImagePicker.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 		B414F5A91EB2E52A00B5268A /* TTImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				B414F5DD1EB2E53000B5268A /* TTImagePicker */,
 				B414F5AD1EB2E52A00B5268A /* AppDelegate.h */,
 				B414F5AE1EB2E52A00B5268A /* AppDelegate.m */,
 				B414F5B01EB2E52A00B5268A /* ViewController.h */,
@@ -138,6 +142,15 @@
 				B414F5D11EB2E52A00B5268A /* Info.plist */,
 			);
 			path = TTImagePickerUITests;
+			sourceTree = "<group>";
+		};
+		B414F5DD1EB2E53000B5268A /* TTImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				B414F5DE1EB2E55400B5268A /* UIViewController+TTImagePicker.h */,
+				B414F5DF1EB2E55400B5268A /* UIViewController+TTImagePicker.m */,
+			);
+			name = TTImagePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B414F5E01EB2E55400B5268A /* UIViewController+TTImagePicker.m in Sources */,
 				B414F5B21EB2E52A00B5268A /* ViewController.m in Sources */,
 				B414F5AF1EB2E52A00B5268A /* AppDelegate.m in Sources */,
 				B414F5AC1EB2E52A00B5268A /* main.m in Sources */,

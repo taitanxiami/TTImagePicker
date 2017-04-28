@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
-
+#import "UIViewController+TTImagePicker.h"
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -16,9 +17,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    
 }
 
+- (IBAction)takePhoto:(id)sender {
+    
+    [self showAlbumWithPhoto:^(UIImage *photo) {
+        self.imageView.image = photo;
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
