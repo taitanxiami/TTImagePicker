@@ -13,18 +13,18 @@
 
 static const void *tt_blockKey = &tt_blockKey;
 static const void *tt_canEditKey = &tt_canEditKey;
-
-
+static const void *tt_canclePickerBlockkKey = &tt_canclePickerBlockkKey;
 
 @interface UIViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (copy, nonatomic) tt_photoBlock photoBlock;
-
+@property (copy, nonatomic) tt_canclePickerBlock canclePickerBlock;
 @property (assign, nonatomic) BOOL canEdit;
 
 
 @end
 @implementation UIViewController (TTImagePicker)
+
 
 - (void)setPhotoBlock:(tt_photoBlock)photoBlock {
     objc_setAssociatedObject(self, &tt_blockKey, photoBlock, OBJC_ASSOCIATION_COPY);
@@ -32,6 +32,14 @@ static const void *tt_canEditKey = &tt_canEditKey;
 
 - (tt_photoBlock)photoBlock {
     return objc_getAssociatedObject(self, &tt_blockKey);
+}
+
+- (void)setCanclePickerBlock:(tt_canclePickerBlock)canclePickerBlock {
+    objc_setAssociatedObject(self, &tt_canclePickerBlockkKey, canclePickerBlock, OBJC_ASSOCIATION_COPY);
+}
+
+- (tt_canclePickerBlock)canclePickerBlock {
+    return objc_getAssociatedObject(self, &tt_canclePickerBlockkKey);
 }
 
 - (void)setCanEdit:(BOOL)canEdit {
@@ -44,13 +52,14 @@ static const void *tt_canEditKey = &tt_canEditKey;
 
 
 // init method
-- (void)showAlbumWithPhoto:(tt_photoBlock )photoBlock {
-    [self showAlbumWithPhoto:photoBlock canEdit:YES];
+- (void)tt_showAlbumWithPhoto:(tt_photoBlock )photoBlock  canclePick:(tt_canclePickerBlock)canclePciker{
+    [self tt_showAlbumWithPhoto:photoBlock canclePick:canclePciker canEdit:YES];
 }
 
-- (void)showAlbumWithPhoto:(tt_photoBlock )photoBlock canEdit:(BOOL)edit {
+- (void)tt_showAlbumWithPhoto:(tt_photoBlock )photoBlock canclePick:(tt_canclePickerBlock)canclePciker canEdit:(BOOL)edit {
     self.canEdit = edit;
     self.photoBlock = photoBlock;
+    self.canclePickerBlock = canclePciker;
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil
                                                                          message:nil
                                                                   preferredStyle:UIAlertControllerStyleActionSheet];
@@ -98,6 +107,8 @@ static const void *tt_canEditKey = &tt_canEditKey;
 
     [self presentViewController:actionSheet animated:YES completion:nil];
 }
+
+#pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     [picker dismissViewControllerAnimated:YES completion:^{}];
     
@@ -109,11 +120,22 @@ static const void *tt_canEditKey = &tt_canEditKey;
         photo = [info objectForKey:UIImagePickerControllerOriginalImage];
         
     }
-    self.photoBlock(photo);
+    
+    if (self.photoBlock) {
+        self.photoBlock(photo);
+    }
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:^{}];
+    
+    if (self.canclePickerBlock) {
+        self.canclePickerBlock();
+    }
 }
 
 /**
- 获取相机/相册权限
+ 获取相册权限
 
  @return 是否可用
  */
@@ -125,6 +147,11 @@ static const void *tt_canEditKey = &tt_canEditKey;
     }
     return YES;
 }
+/**
+ 获取相机权限
+ 
+ @return 是否可用
+ */
 
 - (BOOL)camera_authorization {
     
@@ -134,6 +161,13 @@ static const void *tt_canEditKey = &tt_canEditKey;
     }
     return YES;
 }
+
+/**
+ 错误提示
+
+ @param msg 错误信息
+ @param title 提示标题
+ */
 - (void)showMessage:(NSString *)msg title:(NSString *)title {
     
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:title

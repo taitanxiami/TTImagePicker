@@ -18,15 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
 }
 
 - (IBAction)takePhoto:(id)sender {
     
-    [self showAlbumWithPhoto:^(UIImage *photo) {
+    [self tt_showAlbumWithPhoto:^(UIImage *photo) {
         self.imageView.image = photo;
+    } canclePick:^{
+        
+        NSLog(@"取消");
     }];
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
