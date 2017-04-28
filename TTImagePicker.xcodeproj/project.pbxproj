@@ -15,7 +15,7 @@
 		B414F5BA1EB2E52A00B5268A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B414F5B81EB2E52A00B5268A /* LaunchScreen.storyboard */; };
 		B414F5C51EB2E52A00B5268A /* TTImagePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B414F5C41EB2E52A00B5268A /* TTImagePickerTests.m */; };
 		B414F5D01EB2E52A00B5268A /* TTImagePickerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B414F5CF1EB2E52A00B5268A /* TTImagePickerUITests.m */; };
-		B414F5EB1EB322BA00B5268A /* Class in Resources */ = {isa = PBXBuildFile; fileRef = B414F5EA1EB322BA00B5268A /* Class */; };
+		B414F5F41EB3249900B5268A /* UIViewController+TTImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B414F5F31EB3249900B5268A /* UIViewController+TTImagePicker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,8 @@
 		B414F5CB1EB2E52A00B5268A /* TTImagePickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTImagePickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B414F5CF1EB2E52A00B5268A /* TTImagePickerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTImagePickerUITests.m; sourceTree = "<group>"; };
 		B414F5D11EB2E52A00B5268A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B414F5EA1EB322BA00B5268A /* Class */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Class; sourceTree = "<group>"; };
+		B414F5F21EB3249900B5268A /* UIViewController+TTImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+TTImagePicker.h"; path = "Classes/UIViewController+TTImagePicker.h"; sourceTree = "<group>"; };
+		B414F5F31EB3249900B5268A /* UIViewController+TTImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+TTImagePicker.m"; path = "Classes/UIViewController+TTImagePicker.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 		B414F59E1EB2E52A00B5268A = {
 			isa = PBXGroup;
 			children = (
+				B414F5F11EB3248F00B5268A /* Classes */,
 				B414F5A91EB2E52A00B5268A /* TTImagePicker */,
 				B414F5C31EB2E52A00B5268A /* TTImagePickerTests */,
 				B414F5CE1EB2E52A00B5268A /* TTImagePickerUITests */,
@@ -103,7 +105,6 @@
 		B414F5A91EB2E52A00B5268A /* TTImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				B414F5EA1EB322BA00B5268A /* Class */,
 				B414F5AD1EB2E52A00B5268A /* AppDelegate.h */,
 				B414F5AE1EB2E52A00B5268A /* AppDelegate.m */,
 				B414F5B01EB2E52A00B5268A /* ViewController.h */,
@@ -141,6 +142,15 @@
 				B414F5D11EB2E52A00B5268A /* Info.plist */,
 			);
 			path = TTImagePickerUITests;
+			sourceTree = "<group>";
+		};
+		B414F5F11EB3248F00B5268A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B414F5F21EB3249900B5268A /* UIViewController+TTImagePicker.h */,
+				B414F5F31EB3249900B5268A /* UIViewController+TTImagePicker.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +265,6 @@
 				B414F5BA1EB2E52A00B5268A /* LaunchScreen.storyboard in Resources */,
 				B414F5B71EB2E52A00B5268A /* Assets.xcassets in Resources */,
 				B414F5B51EB2E52A00B5268A /* Main.storyboard in Resources */,
-				B414F5EB1EB322BA00B5268A /* Class in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B414F5F41EB3249900B5268A /* UIViewController+TTImagePicker.m in Sources */,
 				B414F5B21EB2E52A00B5268A /* ViewController.m in Sources */,
 				B414F5AF1EB2E52A00B5268A /* AppDelegate.m in Sources */,
 				B414F5AC1EB2E52A00B5268A /* main.m in Sources */,
